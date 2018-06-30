@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Gretty,Gradle,IDEA,Spring," />
 
 
 
@@ -87,12 +87,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yihsi">
-<meta property="og:url" content="https://yihsi.github.io/index.html">
+<meta name="description" content="由于 IDEA Community 版本不支持配置 Tomcat、Jetty 之类的 Web Server，所以使用此版本的 IDEA 要借助插件来进行 Spring MVC 应用的开发。之前有使用过 tomcat7-maven-plugin，所以在使用 Gradle 和 Jetty 的时候就去搜索是否有类似的插件，然后就找到了 Gretty 。
+下面就是我整理的 Gretty 插件的配置，支持">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Gretty 在 IDEA 中运行 Spring 项目">
+<meta property="og:url" content="https://yihsi.github.io/2018/06/30/使用-Gretty-在-IDEA-中运行-Spring-项目/index.html">
 <meta property="og:site_name" content="Yihsi">
+<meta property="og:description" content="由于 IDEA Community 版本不支持配置 Tomcat、Jetty 之类的 Web Server，所以使用此版本的 IDEA 要借助插件来进行 Spring MVC 应用的开发。之前有使用过 tomcat7-maven-plugin，所以在使用 Gradle 和 Jetty 的时候就去搜索是否有类似的插件，然后就找到了 Gretty 。
+下面就是我整理的 Gretty 插件的配置，支持">
+<meta property="og:updated_time" content="2018-06-30T06:54:53.217Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yihsi">
+<meta name="twitter:title" content="使用 Gretty 在 IDEA 中运行 Spring 项目">
+<meta name="twitter:description" content="由于 IDEA Community 版本不支持配置 Tomcat、Jetty 之类的 Web Server，所以使用此版本的 IDEA 要借助插件来进行 Spring MVC 应用的开发。之前有使用过 tomcat7-maven-plugin，所以在使用 Gradle 和 Jetty 的时候就去搜索是否有类似的插件，然后就找到了 Gretty 。
+下面就是我整理的 Gretty 插件的配置，支持">
 
 
 
@@ -120,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://yihsi.github.io/"/>
+  <link rel="canonical" href="https://yihsi.github.io/2018/06/30/使用-Gretty-在-IDEA-中运行-Spring-项目/"/>
 
 
 
 
 
-  <title> Yihsi </title>
+  <title> 使用 Gretty 在 IDEA 中运行 Spring 项目 | Yihsi </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -151,9 +158,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,9 +249,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -279,10 +284,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2018/06/30/使用-Gretty-在-IDEA-中运行-Spring-项目/" itemprop="url">
-                  使用 Gretty 在 IDEA 中运行 Spring 项目
-                </a>
+                使用 Gretty 在 IDEA 中运行 Spring 项目
               
             
           </h1>
@@ -343,48 +345,64 @@
       
 
       
-        
-          <p>由于 IDEA Community 版本不支持配置 Tomcat、Jetty 之类的 Web Server，所以使用此版本的 IDEA 要借助插件来进行 Spring MVC 应用的开发。之前有使用过 tomcat7-maven-plugin，所以在使用 Gradle 和 Jetty 的时候就去搜索是否有类似的插件，然后就找到了 Gretty 。</p>
-<p>下面就是我整理的 Gretty 插件的配置，支持 debug：<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/30/使用-Gretty-在-IDEA-中运行-Spring-项目/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>由于 IDEA Community 版本不支持配置 Tomcat、Jetty 之类的 Web Server，所以使用此版本的 IDEA 要借助插件来进行 Spring MVC 应用的开发。之前有使用过 tomcat7-maven-plugin，所以在使用 Gradle 和 Jetty 的时候就去搜索是否有类似的插件，然后就找到了 Gretty 。</p>
+<p>下面就是我整理的 Gretty 插件的配置，支持 debug：<br><a id="more"></a><br>gretty.plugin 文件<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Enable debugging of gretty started webapp in IDEA</span></div><div class="line"><span class="comment">// For debuging a gradle task, IDEA creates a gradle init script (in /tmp/ijinit#.gradle), that sets JVM arguments</span></div><div class="line"><span class="comment">// to enable remote debugging.</span></div><div class="line"><span class="comment">// Unfortunately by default that only works for gradle tasks that implement JavaForkOptions - which gretty doesn't do.</span></div><div class="line"><span class="comment">// So parse the JVM args that IDEA uses from that init script and set them as JVM args to be used by gretty:</span></div><div class="line"><span class="keyword">def</span> debugArgs = []</div><div class="line"><span class="keyword">if</span> (gradle.startParameter.initScripts) &#123;</div><div class="line">   <span class="keyword">def</span> line = file(gradle.startParameter.initScripts[<span class="number">0</span>]).readLines().findAll(&#123;x -&gt; x ==~ <span class="regexp">/.*-agentlib:jdwp=.*/</span> &#125;)[<span class="number">0</span>]</div><div class="line">   <span class="keyword">if</span> (line) &#123;</div><div class="line">      debugArgs = ((line =~ <span class="regexp">/.*'(.*)'.*/</span>)[<span class="number">0</span>][<span class="number">1</span>] <span class="keyword">as</span> String).split(<span class="string">' '</span>)</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">buildscript &#123;</div><div class="line">  repositories &#123;</div><div class="line">    jcenter()</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  dependencies &#123;</div><div class="line">    classpath <span class="string">'org.gretty:gretty:2.2.0'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">repositories &#123;</div><div class="line">  jcenter()</div><div class="line">&#125;</div><div class="line"></div><div class="line">apply <span class="string">plugin:</span> <span class="string">'org.gretty'</span></div><div class="line"></div><div class="line">gretty &#123;</div><div class="line">    httpPort = <span class="number">8080</span></div><div class="line">    contextPath = <span class="string">"/"</span></div><div class="line">    servletContainer = <span class="string">'jetty9'</span></div><div class="line">    jvmArgs = [<span class="string">'-Dorg.eclipse.jetty.annotations.maxWait=300'</span>, *debugArgs]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后在你的 web 应用的 build.gradle 中添加如下内容：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">plugins &#123;</div><div class="line">    ...</div><div class="line">    id <span class="string">"org.gretty"</span> version <span class="string">"2.2.0"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apply <span class="string">plugin:</span> <span class="string">'war'</span></div><div class="line">apply <span class="string">from:</span> <span class="string">'/path/to/gretty.plugin'</span></div></pre></td></tr></table></figure>
+<p>现在你就可以使用 gradle appRunWar 来运行 Web 应用了。如果在 IDEA 中配置了 Tasks 为 appRunWar 的 Run Configurations ，那么直接点击 IDEA 中的 debug 按钮就可以进行 debug 了。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>1、<font color="blue"><a href="http://akhikhl.github.io/gretty-doc/Getting-started.html" target="_blank" rel="external">http://akhikhl.github.io/gretty-doc/Getting-started.html</a></font><br>2、<font color="blue"><a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000186970-How-to-Debug-webb-app-started-with-gradle-gretty" target="_blank" rel="external">https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000186970-How-to-Debug-webb-app-started-with-gradle-gretty</a></font></p>
+
       
     </div>
 
     <div>
       
+        
+
+      
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Gretty/" rel="tag"># Gretty</a>
+          
+            <a href="/tags/Gradle/" rel="tag"># Gradle</a>
+          
+            <a href="/tags/IDEA/" rel="tag"># IDEA</a>
+          
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
+          
+        </div>
+      
+
+      
+        
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -392,6 +410,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -411,8 +440,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpeg"
@@ -483,6 +521,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -589,6 +643,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -605,9 +663,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'https-yihsi-github-io';
-      var disqus_identifier = 'index.html';
+      var disqus_identifier = '2018/06/30/使用-Gretty-在-IDEA-中运行-Spring-项目/';
 
-      var disqus_title = "";
+      var disqus_title = "使用 Gretty 在 IDEA 中运行 Spring 项目";
 
 
       function run_disqus_script(disqus_script) {
@@ -620,6 +678,13 @@
 
       run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
       
 
     </script>
